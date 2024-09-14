@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
@@ -11,7 +13,7 @@ import com.opencsv.exceptions.CsvValidationException;
 public class AllDetails {
 
     ResourceInfo resourceInfo;
-    Map<Integer, Integer> chargingStationInfo = new HashMap<>();
+    SortedMap<Integer, Integer> chargingStationInfo = new TreeMap<>();
     Map<Integer, Integer> entryExitPointInfo = new HashMap<>();
     Map<VCSPair, Integer> timeToChargeVehicleInfo = new HashMap<>();
     Map<Integer, int[]> vehicleTypeInfo = new HashMap<>();
@@ -34,7 +36,7 @@ public class AllDetails {
     public void displayAllDetails() {
         System.out.println("Charging Station Info:");
         for (Map.Entry<Integer, Integer> entry : chargingStationInfo.entrySet()) {
-            System.out.println("ChargingStation: C" + entry.getKey() + ", DistanceFromStart: " + entry.getValue());
+            System.out.println("ChargingStation: C" + entry.getValue() + ", DistanceFromStart: " + entry.getKey());
         }
 
         System.out.println("\nEntry Exit Point Info:");
@@ -67,9 +69,9 @@ public class AllDetails {
             csvReader.readNext(); // Skip header
 
             while ((values = csvReader.readNext()) != null) {
-                int chargingStation = Integer.parseInt(values[0].substring(1)); // Remove "C" from "C1", "C2", etc.
+                int chargingStation = Integer.parseInt(values[0].substring(1));
                 int distanceFromStart = Integer.parseInt(values[1]);
-                chargingStationInfo.put(chargingStation, distanceFromStart);
+                chargingStationInfo.put(distanceFromStart, chargingStation);
             }
         }
     }
