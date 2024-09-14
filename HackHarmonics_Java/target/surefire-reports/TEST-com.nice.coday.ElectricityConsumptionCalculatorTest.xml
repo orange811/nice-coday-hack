@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.106" tests="1" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="D:\dev\nice-coday-hack\HackHarmonics_Java\target\test-classes;D:\dev\nice-coday-hack\HackHarmonics_Java\target\classes;C:\Users\piyus\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\piyus\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\piyus\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar;C:\Users\piyus\.m2\repository\commons-codec\commons-codec\1.16.0\commons-codec-1.16.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\piyus\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar;C:\Users\piyus\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar;C:\Users\piyus\.m2\repository\commons-io\commons-io\2.15.0\commons-io-2.15.0.jar;C:\Users\piyus\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar;C:\Users\piyus\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\piyus\.m2\repository\com\opencsv\opencsv\5.5.2\opencsv-5.5.2.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-text\1.9\commons-text-1.9.jar;C:\Users\piyus\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar;C:\Users\piyus\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\piyus\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
+    <property name="sun.java.command" value="C:\Temp\surefire11613787186479529856\surefirebooter8793485565560335450.jar C:\Temp\surefire11613787186479529856 2024-09-14T11-42-38_358-jvmRun1 surefire5881640975928932921tmp surefire_016609149064079110408tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="com.nice.coday.ElectricityConsumptionCalculatorTest"/>
+    <property name="surefire.test.class.path" value="D:\dev\nice-coday-hack\HackHarmonics_Java\target\test-classes;D:\dev\nice-coday-hack\HackHarmonics_Java\target\classes;C:\Users\piyus\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\piyus\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\piyus\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar;C:\Users\piyus\.m2\repository\commons-codec\commons-codec\1.16.0\commons-codec-1.16.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\piyus\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar;C:\Users\piyus\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar;C:\Users\piyus\.m2\repository\commons-io\commons-io\2.15.0\commons-io-2.15.0.jar;C:\Users\piyus\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar;C:\Users\piyus\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\piyus\.m2\repository\com\opencsv\opencsv\5.5.2\opencsv-5.5.2.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-text\1.9\commons-text-1.9.jar;C:\Users\piyus\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar;C:\Users\piyus\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\piyus\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\piyus"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-01-16"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\dev\nice-coday-hack\HackHarmonics_Java"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Temp\surefire11613787186479529856\surefirebooter8793485565560335450.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
+    <property name="user.name" value="piyus"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="maven.ext.class.path" value="C:\Users\piyus\.vscode\extensions\oracle.oracle-java-22.1.2\nbcode\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="localRepository" value="C:\Users\piyus\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Temp\"/>
+    <property name="java.version" value="21.0.2"/>
+    <property name="user.dir" value="D:\dev\nice-coday-hack\HackHarmonics_Java"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-21\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Users\piyus\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\piyus\AppData\Local\Programs\Python\Python312\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Oculus\Support\oculus-runtime;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\CMake\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\dotnet\;C:\Program Files\FFmpeg\bin;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Microchip\MPLAB C32 Suite\bin;C:\msys64\ucrt64\bin;C:\Program Files\Java\jre7\bin;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\Users\piyus\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\piyus\AppData\Local\Programs\Python\Python312\;C:\Program Files (x86)\Microchip\mplabc18\v3.47\mpasm;C:\Program Files (x86)\Microchip\mplabc18\v3.47\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\piyus\AppData\Local\Microsoft\WindowsApps;C:\Users\piyus\AppData\Local\GitHubDesktop\bin;C:\Users\piyus\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\piyus\AppData\Roaming\npm;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.2+13-LTS-58"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="test1" classname="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.062">
+    <error message="Not implemented yet." type="org.apache.poi.ss.formula.eval.NotImplementedException">org.apache.poi.ss.formula.eval.NotImplementedException: Not implemented yet.
+	at com.nice.coday.ElectricityConsumptionCalculatorTest.test1(ElectricityConsumptionCalculatorTest.java:36)
+</error>
+    <system-out><![CDATA[Charging Station Info:
+ChargingStation: C1, DistanceFromStart: 19
+ChargingStation: C2, DistanceFromStart: 29
+ChargingStation: C3, DistanceFromStart: 43
+ChargingStation: C4, DistanceFromStart: 68
+ChargingStation: C5, DistanceFromStart: 91
+ChargingStation: C6, DistanceFromStart: 119
+ChargingStation: C7, DistanceFromStart: 125
+ChargingStation: C8, DistanceFromStart: 141
+ChargingStation: C9, DistanceFromStart: 168
+ChargingStation: C10, DistanceFromStart: 185
+ChargingStation: C11, DistanceFromStart: 217
+ChargingStation: C12, DistanceFromStart: 238
+ChargingStation: C13, DistanceFromStart: 249
+ChargingStation: C14, DistanceFromStart: 260
+ChargingStation: C15, DistanceFromStart: 292
+
+Entry Exit Point Info:
+EntryExitPoint: A1, DistanceFromStart: 0
+EntryExitPoint: A2, DistanceFromStart: 56
+EntryExitPoint: A3, DistanceFromStart: 92
+EntryExitPoint: A4, DistanceFromStart: 125
+EntryExitPoint: A5, DistanceFromStart: 146
+EntryExitPoint: A6, DistanceFromStart: 192
+EntryExitPoint: A7, DistanceFromStart: 199
+EntryExitPoint: A8, DistanceFromStart: 241
+EntryExitPoint: A9, DistanceFromStart: 292
+EntryExitPoint: A10, DistanceFromStart: 300
+
+Time to Charge Vehicle Info:
+VehicleType: V1, ChargingStation: C4, TimeToChargePerUnit: 300
+VehicleType: V1, ChargingStation: C3, TimeToChargePerUnit: 420
+VehicleType: V2, ChargingStation: C10, TimeToChargePerUnit: 300
+VehicleType: V1, ChargingStation: C9, TimeToChargePerUnit: 300
+VehicleType: V1, ChargingStation: C5, TimeToChargePerUnit: 420
+VehicleType: V1, ChargingStation: C13, TimeToChargePerUnit: 300
+VehicleType: V2, ChargingStation: C4, TimeToChargePerUnit: 300
+VehicleType: V2, ChargingStation: C2, TimeToChargePerUnit: 420
+VehicleType: V2, ChargingStation: C6, TimeToChargePerUnit: 300
+VehicleType: V2, ChargingStation: C11, TimeToChargePerUnit: 300
+VehicleType: V2, ChargingStation: C14, TimeToChargePerUnit: 540
+VehicleType: V2, ChargingStation: C13, TimeToChargePerUnit: 360
+VehicleType: V2, ChargingStation: C1, TimeToChargePerUnit: 480
+VehicleType: V2, ChargingStation: C12, TimeToChargePerUnit: 300
+VehicleType: V1, ChargingStation: C7, TimeToChargePerUnit: 420
+VehicleType: V2, ChargingStation: C9, TimeToChargePerUnit: 540
+VehicleType: V1, ChargingStation: C8, TimeToChargePerUnit: 540
+VehicleType: V1, ChargingStation: C1, TimeToChargePerUnit: 480
+VehicleType: V1, ChargingStation: C2, TimeToChargePerUnit: 480
+VehicleType: V2, ChargingStation: C8, TimeToChargePerUnit: 300
+VehicleType: V1, ChargingStation: C10, TimeToChargePerUnit: 360
+VehicleType: V2, ChargingStation: C5, TimeToChargePerUnit: 480
+VehicleType: V2, ChargingStation: C7, TimeToChargePerUnit: 480
+VehicleType: V2, ChargingStation: C3, TimeToChargePerUnit: 540
+VehicleType: V1, ChargingStation: C6, TimeToChargePerUnit: 300
+VehicleType: V1, ChargingStation: C14, TimeToChargePerUnit: 480
+VehicleType: V1, ChargingStation: C11, TimeToChargePerUnit: 420
+VehicleType: V1, ChargingStation: C12, TimeToChargePerUnit: 420
+VehicleType: V1, ChargingStation: C15, TimeToChargePerUnit: 360
+VehicleType: V2, ChargingStation: C15, TimeToChargePerUnit: 300
+
+Vehicle Type Info:
+VehicleType: V1, NumberOfUnitsForFullyCharge: 18, Mileage: 50
+VehicleType: V2, NumberOfUnitsForFullyCharge: 9, Mileage: 60
+
+Trip Details:
+ID: 1, VehicleType: V1, RemainingBatteryPercentage: 28, EntryPoint: A2, ExitPoint: A10
+ID: 2, VehicleType: V2, RemainingBatteryPercentage: 56, EntryPoint: A1, ExitPoint: A6
+ID: 3, VehicleType: V2, RemainingBatteryPercentage: 77, EntryPoint: A6, ExitPoint: A10
+ID: 4, VehicleType: V2, RemainingBatteryPercentage: 46, EntryPoint: A3, ExitPoint: A8
+ID: 5, VehicleType: V1, RemainingBatteryPercentage: 97, EntryPoint: A2, ExitPoint: A9
+ID: 6, VehicleType: V2, RemainingBatteryPercentage: 39, EntryPoint: A3, ExitPoint: A10
+ID: 7, VehicleType: V1, RemainingBatteryPercentage: 89, EntryPoint: A5, ExitPoint: A9
+ID: 8, VehicleType: V2, RemainingBatteryPercentage: 84, EntryPoint: A3, ExitPoint: A10
+ID: 9, VehicleType: V1, RemainingBatteryPercentage: 87, EntryPoint: A1, ExitPoint: A9
+ID: 10, VehicleType: V1, RemainingBatteryPercentage: 80, EntryPoint: A2, ExitPoint: A8
+ID: 11, VehicleType: V2, RemainingBatteryPercentage: 91, EntryPoint: A4, ExitPoint: A10
+ID: 12, VehicleType: V1, RemainingBatteryPercentage: 97, EntryPoint: A5, ExitPoint: A9
+ID: 13, VehicleType: V1, RemainingBatteryPercentage: 20, EntryPoint: A3, ExitPoint: A4
+ID: 14, VehicleType: V2, RemainingBatteryPercentage: 30, EntryPoint: A3, ExitPoint: A10
+ID: 15, VehicleType: V1, RemainingBatteryPercentage: 43, EntryPoint: A1, ExitPoint: A6
+ID: 16, VehicleType: V1, RemainingBatteryPercentage: 76, EntryPoint: A1, ExitPoint: A5
+ID: 17, VehicleType: V2, RemainingBatteryPercentage: 78, EntryPoint: A9, ExitPoint: A10
+ID: 18, VehicleType: V2, RemainingBatteryPercentage: 79, EntryPoint: A5, ExitPoint: A10
+ID: 19, VehicleType: V2, RemainingBatteryPercentage: 26, EntryPoint: A8, ExitPoint: A10
+ID: 20, VehicleType: V2, RemainingBatteryPercentage: 20, EntryPoint: A3, ExitPoint: A6
+HELLLLLLLOOOOOOOOOOOOOOO
+]]></system-out>
+  </testcase>
+</testsuite>
