@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.122" tests="1" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.nice.coday.ElectricityConsumptionCalculatorTest" time="2.177" tests="6" errors="0" skipped="0" failures="4">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Temp\surefire5148985779045792756\surefirebooter13945782098222225329.jar C:\Temp\surefire5148985779045792756 2024-09-14T15-29-33_481-jvmRun1 surefire16320282044582853516tmp surefire_017450023976850633616tmp"/>
+    <property name="sun.java.command" value="C:\Temp\surefire14914880763976185968\surefirebooter7242048672493314522.jar C:\Temp\surefire14914880763976185968 2024-09-14T17-44-20_423-jvmRun1 surefire12198884768334055372tmp surefire_06559860247567609056tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="com.nice.coday.ElectricityConsumptionCalculatorTest"/>
     <property name="surefire.test.class.path" value="D:\dev\nice-coday-hack\HackHarmonics_Java\target\test-classes;D:\dev\nice-coday-hack\HackHarmonics_Java\target\classes;C:\Users\piyus\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\piyus\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\piyus\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar;C:\Users\piyus\.m2\repository\commons-codec\commons-codec\1.16.0\commons-codec-1.16.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\piyus\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar;C:\Users\piyus\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar;C:\Users\piyus\.m2\repository\commons-io\commons-io\2.15.0\commons-io-2.15.0.jar;C:\Users\piyus\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar;C:\Users\piyus\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\piyus\.m2\repository\com\opencsv\opencsv\5.5.2\opencsv-5.5.2.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-text\1.9\commons-text-1.9.jar;C:\Users\piyus\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar;C:\Users\piyus\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\piyus\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Temp\surefire5148985779045792756\surefirebooter13945782098222225329.jar"/>
+    <property name="surefire.real.class.path" value="C:\Temp\surefire14914880763976185968\surefirebooter7242048672493314522.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
@@ -60,107 +60,28 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="test1" classname="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.077">
-    <error message="Not implemented yet." type="org.apache.poi.ss.formula.eval.NotImplementedException">org.apache.poi.ss.formula.eval.NotImplementedException: Not implemented yet.
-	at com.nice.coday.ElectricityConsumptionCalculatorTest.test1(ElectricityConsumptionCalculatorTest.java:36)
-</error>
-    <system-out><![CDATA[Charging Station Info:
-ChargingStation: C1, DistanceFromStart: 19
-ChargingStation: C2, DistanceFromStart: 29
-ChargingStation: C3, DistanceFromStart: 43
-ChargingStation: C4, DistanceFromStart: 68
-ChargingStation: C5, DistanceFromStart: 91
-ChargingStation: C6, DistanceFromStart: 119
-ChargingStation: C7, DistanceFromStart: 125
-ChargingStation: C8, DistanceFromStart: 141
-ChargingStation: C9, DistanceFromStart: 168
-ChargingStation: C10, DistanceFromStart: 185
-ChargingStation: C11, DistanceFromStart: 217
-ChargingStation: C12, DistanceFromStart: 238
-ChargingStation: C13, DistanceFromStart: 249
-ChargingStation: C14, DistanceFromStart: 260
-ChargingStation: C15, DistanceFromStart: 292
-
-Entry Exit Point Info:
-EntryExitPoint: A1, DistanceFromStart: 0
-EntryExitPoint: A2, DistanceFromStart: 56
-EntryExitPoint: A3, DistanceFromStart: 92
-EntryExitPoint: A4, DistanceFromStart: 125
-EntryExitPoint: A5, DistanceFromStart: 146
-EntryExitPoint: A6, DistanceFromStart: 192
-EntryExitPoint: A7, DistanceFromStart: 199
-EntryExitPoint: A8, DistanceFromStart: 241
-EntryExitPoint: A9, DistanceFromStart: 292
-EntryExitPoint: A10, DistanceFromStart: 300
-
-Time to Charge Vehicle Info:
-VehicleType: V2, ChargingStation: C2, TimeToChargePerUnit: 420
-VehicleType: V2, ChargingStation: C3, TimeToChargePerUnit: 540
-VehicleType: V2, ChargingStation: C4, TimeToChargePerUnit: 300
-VehicleType: V2, ChargingStation: C5, TimeToChargePerUnit: 480
-VehicleType: V2, ChargingStation: C6, TimeToChargePerUnit: 300
-VehicleType: V2, ChargingStation: C7, TimeToChargePerUnit: 480
-VehicleType: V2, ChargingStation: C8, TimeToChargePerUnit: 300
-VehicleType: V2, ChargingStation: C9, TimeToChargePerUnit: 540
-VehicleType: V2, ChargingStation: C10, TimeToChargePerUnit: 300
-VehicleType: V2, ChargingStation: C11, TimeToChargePerUnit: 300
-VehicleType: V2, ChargingStation: C12, TimeToChargePerUnit: 300
-VehicleType: V2, ChargingStation: C13, TimeToChargePerUnit: 360
-VehicleType: V2, ChargingStation: C14, TimeToChargePerUnit: 540
-VehicleType: V2, ChargingStation: C15, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C1, TimeToChargePerUnit: 480
-VehicleType: V1, ChargingStation: C2, TimeToChargePerUnit: 480
-VehicleType: V1, ChargingStation: C3, TimeToChargePerUnit: 420
-VehicleType: V1, ChargingStation: C4, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C5, TimeToChargePerUnit: 420
-VehicleType: V1, ChargingStation: C6, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C7, TimeToChargePerUnit: 420
-VehicleType: V1, ChargingStation: C8, TimeToChargePerUnit: 540
-VehicleType: V1, ChargingStation: C9, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C10, TimeToChargePerUnit: 360
-VehicleType: V1, ChargingStation: C11, TimeToChargePerUnit: 420
-VehicleType: V1, ChargingStation: C12, TimeToChargePerUnit: 420
-VehicleType: V1, ChargingStation: C13, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C14, TimeToChargePerUnit: 480
-VehicleType: V1, ChargingStation: C15, TimeToChargePerUnit: 360
-VehicleType: V2, ChargingStation: C1, TimeToChargePerUnit: 480
-
-Vehicle Type Info:
-VehicleType: V1, NumberOfUnitsForFullyCharge: 18, Mileage: 50
-VehicleType: V2, NumberOfUnitsForFullyCharge: 9, Mileage: 60
-
-Trip Details:
-ID: 1, VehicleType: V1, RemainingBatteryPercentage: 28, EntryPoint: A2, ExitPoint: A10
-ID: 2, VehicleType: V2, RemainingBatteryPercentage: 56, EntryPoint: A1, ExitPoint: A6
-ID: 3, VehicleType: V2, RemainingBatteryPercentage: 77, EntryPoint: A6, ExitPoint: A10
-ID: 4, VehicleType: V2, RemainingBatteryPercentage: 46, EntryPoint: A3, ExitPoint: A8
-ID: 5, VehicleType: V1, RemainingBatteryPercentage: 97, EntryPoint: A2, ExitPoint: A9
-ID: 6, VehicleType: V2, RemainingBatteryPercentage: 39, EntryPoint: A3, ExitPoint: A10
-ID: 7, VehicleType: V1, RemainingBatteryPercentage: 89, EntryPoint: A5, ExitPoint: A9
-ID: 8, VehicleType: V2, RemainingBatteryPercentage: 84, EntryPoint: A3, ExitPoint: A10
-ID: 9, VehicleType: V1, RemainingBatteryPercentage: 87, EntryPoint: A1, ExitPoint: A9
-ID: 10, VehicleType: V1, RemainingBatteryPercentage: 80, EntryPoint: A2, ExitPoint: A8
-ID: 11, VehicleType: V2, RemainingBatteryPercentage: 91, EntryPoint: A4, ExitPoint: A10
-ID: 12, VehicleType: V1, RemainingBatteryPercentage: 97, EntryPoint: A5, ExitPoint: A9
-ID: 13, VehicleType: V1, RemainingBatteryPercentage: 20, EntryPoint: A3, ExitPoint: A4
-ID: 14, VehicleType: V2, RemainingBatteryPercentage: 30, EntryPoint: A3, ExitPoint: A10
-ID: 15, VehicleType: V1, RemainingBatteryPercentage: 43, EntryPoint: A1, ExitPoint: A6
-ID: 16, VehicleType: V1, RemainingBatteryPercentage: 76, EntryPoint: A1, ExitPoint: A5
-ID: 17, VehicleType: V2, RemainingBatteryPercentage: 78, EntryPoint: A9, ExitPoint: A10
-ID: 18, VehicleType: V2, RemainingBatteryPercentage: 79, EntryPoint: A5, ExitPoint: A10
-ID: 19, VehicleType: V2, RemainingBatteryPercentage: 26, EntryPoint: A8, ExitPoint: A10
-ID: 20, VehicleType: V2, RemainingBatteryPercentage: 20, EntryPoint: A3, ExitPoint: A6
-Aggregated Results by Vehicle Type:
-Vehicle Type: V1
-Total Units Consumed: 534.42
-Total Time Required: 231496
-Number of Trips Finished: 8
-
-Vehicle Type: V2
-Total Units Consumed: 156.54000000000002
-Total Time Required: 55023
-Number of Trips Finished: 8
-
+  <testcase name="test1" classname="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.111"/>
+  <testcase name="test2" classname="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.022">
+    <failure message="expected:&lt;3972.0&gt; but was:&lt;3951.2400000000002&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<3972.0> but was:<3951.2400000000002>
+	at com.nice.coday.ElectricityConsumptionCalculatorTest.test2(ElectricityConsumptionCalculatorTest.java:95)
+]]></failure>
+  </testcase>
+  <testcase name="test3" classname="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.01"/>
+  <testcase name="test5" classname="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.159">
+    <failure message="expected:&lt;351797.0&gt; but was:&lt;351168.16000000003&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<351797.0> but was:<351168.16000000003>
+	at com.nice.coday.ElectricityConsumptionCalculatorTest.test5(ElectricityConsumptionCalculatorTest.java:189)
+]]></failure>
+  </testcase>
+  <testcase name="test6" classname="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.551">
+    <failure message="expected:&lt;2741580.0&gt; but was:&lt;2737234.35&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<2741580.0> but was:<2737234.35>
+	at com.nice.coday.ElectricityConsumptionCalculatorTest.test6(ElectricityConsumptionCalculatorTest.java:229)
+]]></failure>
+    <system-out><![CDATA[actualTotalUnitsConsumed : 2737234.35
 ]]></system-out>
+  </testcase>
+  <testcase name="test7" classname="com.nice.coday.ElectricityConsumptionCalculatorTest" time="1.243">
+    <failure message="expected:&lt;1.2823458E7&gt; but was:&lt;1.28024012E7&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<1.2823458E7> but was:<1.28024012E7>
+	at com.nice.coday.ElectricityConsumptionCalculatorTest.test7(ElectricityConsumptionCalculatorTest.java:272)
+]]></failure>
   </testcase>
 </testsuite>

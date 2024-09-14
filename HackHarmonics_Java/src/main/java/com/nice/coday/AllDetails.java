@@ -9,6 +9,8 @@ import java.util.TreeMap;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+//Class to load and store all details from csv files in maps
+//primary keys of tables in csv files are used as keys to store values in maps
 
 public class AllDetails {
 
@@ -21,8 +23,7 @@ public class AllDetails {
 
     public AllDetails(ResourceInfo resourceInfo) {
         this.resourceInfo = resourceInfo;
-        try {
-            // Initialize all maps using methods to read CSV files
+        try {// avoid csv validation errors due to opencsv
             loadChargingStationInfo();
             loadEntryExitPointInfo();
             loadTimeToChargeVehicleInfo();
@@ -33,40 +34,10 @@ public class AllDetails {
         }
     }
 
-    public void displayAllDetails() {
-        System.out.println("Charging Station Info:");
-        for (Map.Entry<Integer, Integer> entry : chargingStationInfo.entrySet()) {
-            System.out.println("ChargingStation: C" + entry.getValue() + ", DistanceFromStart: " + entry.getKey());
-        }
-
-        System.out.println("\nEntry Exit Point Info:");
-        for (Map.Entry<Integer, Integer> entry : entryExitPointInfo.entrySet()) {
-            System.out.println("EntryExitPoint: A" + entry.getKey() + ", DistanceFromStart: " + entry.getValue());
-        }
-
-        System.out.println("\nTime to Charge Vehicle Info:");
-        for (Map.Entry<VCSPair, Integer> entry : timeToChargeVehicleInfo.entrySet()) {
-            VCSPair pair = entry.getKey();
-            System.out.println("VehicleType: V" + pair.vehicleType + ", ChargingStation: C" + pair.chargingStation + ", TimeToChargePerUnit: " + entry.getValue());
-        }
-
-        System.out.println("\nVehicle Type Info:");
-        for (Map.Entry<Integer, int[]> entry : vehicleTypeInfo.entrySet()) {
-            int[] details = entry.getValue();
-            System.out.println("VehicleType: V" + entry.getKey() + ", NumberOfUnitsForFullyCharge: " + details[0] + ", Mileage: " + details[1]);
-        }
-
-        System.out.println("\nTrip Details:");
-        for (Map.Entry<Integer, int[]> entry : tripDetails.entrySet()) {
-            int[] details = entry.getValue();
-            System.out.println("ID: " + entry.getKey() + ", VehicleType: V" + details[0] + ", RemainingBatteryPercentage: " + details[1] + ", EntryPoint: A" + details[2] + ", ExitPoint: A" + details[3]);
-        }
-    }
-
     private void loadChargingStationInfo() throws IOException, CsvValidationException {
         try (CSVReader csvReader = new CSVReader(new FileReader(resourceInfo.getChargingStationInfoPath().toFile()))) {
             String[] values;
-            csvReader.readNext(); // Skip header
+            csvReader.readNext(); // ignore column titles
 
             while ((values = csvReader.readNext()) != null) {
                 int chargingStation = Integer.parseInt(values[0].substring(1));
@@ -79,10 +50,10 @@ public class AllDetails {
     private void loadEntryExitPointInfo() throws IOException, CsvValidationException {
         try (CSVReader csvReader = new CSVReader(new FileReader(resourceInfo.getEntryExitPointInfoPath().toFile()))) {
             String[] values;
-            csvReader.readNext(); // Skip header
+            csvReader.readNext(); // ignore column titles
 
             while ((values = csvReader.readNext()) != null) {
-                int entryExitPoint = Integer.parseInt(values[0].substring(1)); // Remove "A" from "A1", "A2", etc.
+                int entryExitPoint = Integer.parseInt(values[0].substring(1)); //convert point id strign to int
                 int distanceFromStart = Integer.parseInt(values[1]);
                 entryExitPointInfo.put(entryExitPoint, distanceFromStart);
             }
@@ -92,11 +63,11 @@ public class AllDetails {
     private void loadTimeToChargeVehicleInfo() throws IOException, CsvValidationException {
         try (CSVReader csvReader = new CSVReader(new FileReader(resourceInfo.getTimeToChargeVehicleInfoPath().toFile()))) {
             String[] values;
-            csvReader.readNext(); // Skip header
+            csvReader.readNext(); // ignore column titles
 
             while ((values = csvReader.readNext()) != null) {
-                int vehicleType = Integer.parseInt(values[0].substring(1)); // Remove "V" from "V1", "V2", etc.
-                int chargingStation = Integer.parseInt(values[1].substring(1)); // Remove "C" from "C1", "C2", etc.
+                int vehicleType = Integer.parseInt(values[0].substring(1)); // convert vehicle type id string to int
+                int chargingStation = Integer.parseInt(values[1].substring(1)); // convert charging station id string to int
                 int timeToCharge = Integer.parseInt(values[2]);
                 VCSPair pair = new VCSPair(vehicleType, chargingStation);
                 timeToChargeVehicleInfo.put(pair, timeToCharge);
@@ -107,10 +78,10 @@ public class AllDetails {
     private void loadVehicleTypeInfo() throws IOException, CsvValidationException {
         try (CSVReader csvReader = new CSVReader(new FileReader(resourceInfo.getVehicleTypeInfoPath().toFile()))) {
             String[] values;
-            csvReader.readNext(); // Skip header
+            csvReader.readNext(); // ignore column titles
 
             while ((values = csvReader.readNext()) != null) {
-                int vehicleType = Integer.parseInt(values[0].substring(1)); // Remove "V" from "V1", "V2", etc.
+                int vehicleType = Integer.parseInt(values[0].substring(1)); // convert vehicle type id string to int
                 int numberOfUnits = Integer.parseInt(values[1]);
                 int mileage = Integer.parseInt(values[2]);
                 vehicleTypeInfo.put(vehicleType, new int[]{numberOfUnits, mileage});
@@ -125,17 +96,17 @@ public class AllDetails {
 
             while ((values = csvReader.readNext()) != null) {
                 int id = Integer.parseInt(values[0]);
-                int vehicleType = Integer.parseInt(values[1].substring(1)); // Remove "V" from "V1", "V2", etc.
+                int vehicleType = Integer.parseInt(values[1].substring(1)); // convert vehicle type id string to int
                 int remainingBattery = Integer.parseInt(values[2]);
-                int entryPoint = Integer.parseInt(values[3].substring(1)); // Remove "A" from "A1", "A2", etc.
-                int exitPoint = Integer.parseInt(values[4].substring(1));  // Remove "A" from "A1", "A2", etc.
+                int entryPoint = Integer.parseInt(values[3].substring(1)); // entry/exit point names to int
+                int exitPoint = Integer.parseInt(values[4].substring(1));
                 tripDetails.put(id, new int[]{vehicleType, remainingBattery, entryPoint, exitPoint});
             }
         }
     }
 }
 
-class VCSPair {
+class VCSPair {// Vehicle Charging Station pair class
 
     int vehicleType;
     int chargingStation;
@@ -145,6 +116,9 @@ class VCSPair {
         this.chargingStation = chargingStation;
     }
 
+    // for putting VCSPair objects in a map
+    // we need to override equals and hashcode methods so that they can work as hashed keys 
+    // and be compared
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -157,6 +131,8 @@ class VCSPair {
         return vehicleType == vcPair.vehicleType && chargingStation == vcPair.chargingStation;
     }
 
+    // hashcode method to generate hashcode for the object based on vehicleType and chargingStation. 
+    // unlikely to match for upto 32 charging stations
     @Override
     public int hashCode() {
         return 31 * vehicleType + chargingStation;
