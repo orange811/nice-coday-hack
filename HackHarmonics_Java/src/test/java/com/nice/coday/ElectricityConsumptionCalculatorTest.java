@@ -71,7 +71,7 @@ public class ElectricityConsumptionCalculatorTest {
         double actualTotalTimeRequiredAtC10 = resultData.getTotalChargingStationTime().get("C10");
         Assert.assertEquals(expectedTotalTimeRequiredAtC10, actualTotalTimeRequiredAtC10, 50);
 
-        //Number of trips finished by vehicle type V2
+        //Number of trips finished by both vehicle types
         long expectedNumberOfTripsFinished = 16;
         long actualNumberOfTripsFinished = resultData.getConsumptionDetails().stream()
                 .map(ConsumptionDetails::getNumberOfTripsFinished)

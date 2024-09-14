@@ -144,4 +144,21 @@ class VCSPair {
         this.vehicleType = vehicleType;
         this.chargingStation = chargingStation;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VCSPair vcPair = (VCSPair) o;
+        return vehicleType == vcPair.vehicleType && chargingStation == vcPair.chargingStation;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * vehicleType + chargingStation;
+    }
 }

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.nice.coday.ElectricityConsumptionCalculatorTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.074 s <<< FAILURE! - in com.nice.coday.ElectricityConsumptionCalculatorTest
-test1(com.nice.coday.ElectricityConsumptionCalculatorTest)  Time elapsed: 0.045 s  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.122 s <<< FAILURE! - in com.nice.coday.ElectricityConsumptionCalculatorTest
+test1(com.nice.coday.ElectricityConsumptionCalculatorTest)  Time elapsed: 0.077 s  <<< ERROR!
 org.apache.poi.ss.formula.eval.NotImplementedException: Not implemented yet.
 	at com.nice.coday.ElectricityConsumptionCalculatorTest.test1(ElectricityConsumptionCalculatorTest.java:36)
 

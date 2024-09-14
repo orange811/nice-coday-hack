@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.074" tests="1" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.122" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Temp\surefire8767149978709789765\surefirebooter13384915011414896242.jar C:\Temp\surefire8767149978709789765 2024-09-14T12-02-45_444-jvmRun1 surefire13762043712721370606tmp surefire_018182861328783435579tmp"/>
+    <property name="sun.java.command" value="C:\Temp\surefire5148985779045792756\surefirebooter13945782098222225329.jar C:\Temp\surefire5148985779045792756 2024-09-14T15-29-33_481-jvmRun1 surefire16320282044582853516tmp surefire_017450023976850633616tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="com.nice.coday.ElectricityConsumptionCalculatorTest"/>
     <property name="surefire.test.class.path" value="D:\dev\nice-coday-hack\HackHarmonics_Java\target\test-classes;D:\dev\nice-coday-hack\HackHarmonics_Java\target\classes;C:\Users\piyus\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\piyus\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\piyus\.m2\repository\org\mockito\mockito-all\1.10.19\mockito-all-1.10.19.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar;C:\Users\piyus\.m2\repository\commons-codec\commons-codec\1.16.0\commons-codec-1.16.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\piyus\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\piyus\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar;C:\Users\piyus\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar;C:\Users\piyus\.m2\repository\commons-io\commons-io\2.15.0\commons-io-2.15.0.jar;C:\Users\piyus\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar;C:\Users\piyus\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\piyus\.m2\repository\com\opencsv\opencsv\5.5.2\opencsv-5.5.2.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\piyus\.m2\repository\org\apache\commons\commons-text\1.9\commons-text-1.9.jar;C:\Users\piyus\.m2\repository\commons-beanutils\commons-beanutils\1.9.4\commons-beanutils-1.9.4.jar;C:\Users\piyus\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\piyus\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Temp\surefire8767149978709789765\surefirebooter13384915011414896242.jar"/>
+    <property name="surefire.real.class.path" value="C:\Temp\surefire5148985779045792756\surefirebooter13945782098222225329.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
@@ -60,13 +60,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="test1" classname="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.045">
+  <testcase name="test1" classname="com.nice.coday.ElectricityConsumptionCalculatorTest" time="0.077">
     <error message="Not implemented yet." type="org.apache.poi.ss.formula.eval.NotImplementedException">org.apache.poi.ss.formula.eval.NotImplementedException: Not implemented yet.
 	at com.nice.coday.ElectricityConsumptionCalculatorTest.test1(ElectricityConsumptionCalculatorTest.java:36)
 </error>
     <system-out><![CDATA[Charging Station Info:
-ChargingStation: C2, DistanceFromStart: 19
-ChargingStation: C1, DistanceFromStart: 29
+ChargingStation: C1, DistanceFromStart: 19
+ChargingStation: C2, DistanceFromStart: 29
 ChargingStation: C3, DistanceFromStart: 43
 ChargingStation: C4, DistanceFromStart: 68
 ChargingStation: C5, DistanceFromStart: 91
@@ -94,36 +94,36 @@ EntryExitPoint: A9, DistanceFromStart: 292
 EntryExitPoint: A10, DistanceFromStart: 300
 
 Time to Charge Vehicle Info:
-VehicleType: V1, ChargingStation: C4, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C3, TimeToChargePerUnit: 420
-VehicleType: V2, ChargingStation: C10, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C9, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C5, TimeToChargePerUnit: 420
-VehicleType: V1, ChargingStation: C13, TimeToChargePerUnit: 300
-VehicleType: V2, ChargingStation: C4, TimeToChargePerUnit: 300
 VehicleType: V2, ChargingStation: C2, TimeToChargePerUnit: 420
+VehicleType: V2, ChargingStation: C3, TimeToChargePerUnit: 540
+VehicleType: V2, ChargingStation: C4, TimeToChargePerUnit: 300
+VehicleType: V2, ChargingStation: C5, TimeToChargePerUnit: 480
 VehicleType: V2, ChargingStation: C6, TimeToChargePerUnit: 300
-VehicleType: V2, ChargingStation: C11, TimeToChargePerUnit: 300
-VehicleType: V2, ChargingStation: C14, TimeToChargePerUnit: 540
-VehicleType: V2, ChargingStation: C13, TimeToChargePerUnit: 360
-VehicleType: V2, ChargingStation: C1, TimeToChargePerUnit: 480
-VehicleType: V2, ChargingStation: C12, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C7, TimeToChargePerUnit: 420
+VehicleType: V2, ChargingStation: C7, TimeToChargePerUnit: 480
+VehicleType: V2, ChargingStation: C8, TimeToChargePerUnit: 300
 VehicleType: V2, ChargingStation: C9, TimeToChargePerUnit: 540
-VehicleType: V1, ChargingStation: C8, TimeToChargePerUnit: 540
+VehicleType: V2, ChargingStation: C10, TimeToChargePerUnit: 300
+VehicleType: V2, ChargingStation: C11, TimeToChargePerUnit: 300
+VehicleType: V2, ChargingStation: C12, TimeToChargePerUnit: 300
+VehicleType: V2, ChargingStation: C13, TimeToChargePerUnit: 360
+VehicleType: V2, ChargingStation: C14, TimeToChargePerUnit: 540
+VehicleType: V2, ChargingStation: C15, TimeToChargePerUnit: 300
 VehicleType: V1, ChargingStation: C1, TimeToChargePerUnit: 480
 VehicleType: V1, ChargingStation: C2, TimeToChargePerUnit: 480
-VehicleType: V2, ChargingStation: C8, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C10, TimeToChargePerUnit: 360
-VehicleType: V2, ChargingStation: C5, TimeToChargePerUnit: 480
-VehicleType: V2, ChargingStation: C7, TimeToChargePerUnit: 480
-VehicleType: V2, ChargingStation: C3, TimeToChargePerUnit: 540
+VehicleType: V1, ChargingStation: C3, TimeToChargePerUnit: 420
+VehicleType: V1, ChargingStation: C4, TimeToChargePerUnit: 300
+VehicleType: V1, ChargingStation: C5, TimeToChargePerUnit: 420
 VehicleType: V1, ChargingStation: C6, TimeToChargePerUnit: 300
-VehicleType: V1, ChargingStation: C14, TimeToChargePerUnit: 480
+VehicleType: V1, ChargingStation: C7, TimeToChargePerUnit: 420
+VehicleType: V1, ChargingStation: C8, TimeToChargePerUnit: 540
+VehicleType: V1, ChargingStation: C9, TimeToChargePerUnit: 300
+VehicleType: V1, ChargingStation: C10, TimeToChargePerUnit: 360
 VehicleType: V1, ChargingStation: C11, TimeToChargePerUnit: 420
 VehicleType: V1, ChargingStation: C12, TimeToChargePerUnit: 420
+VehicleType: V1, ChargingStation: C13, TimeToChargePerUnit: 300
+VehicleType: V1, ChargingStation: C14, TimeToChargePerUnit: 480
 VehicleType: V1, ChargingStation: C15, TimeToChargePerUnit: 360
-VehicleType: V2, ChargingStation: C15, TimeToChargePerUnit: 300
+VehicleType: V2, ChargingStation: C1, TimeToChargePerUnit: 480
 
 Vehicle Type Info:
 VehicleType: V1, NumberOfUnitsForFullyCharge: 18, Mileage: 50
@@ -150,6 +150,17 @@ ID: 17, VehicleType: V2, RemainingBatteryPercentage: 78, EntryPoint: A9, ExitPoi
 ID: 18, VehicleType: V2, RemainingBatteryPercentage: 79, EntryPoint: A5, ExitPoint: A10
 ID: 19, VehicleType: V2, RemainingBatteryPercentage: 26, EntryPoint: A8, ExitPoint: A10
 ID: 20, VehicleType: V2, RemainingBatteryPercentage: 20, EntryPoint: A3, ExitPoint: A6
+Aggregated Results by Vehicle Type:
+Vehicle Type: V1
+Total Units Consumed: 534.42
+Total Time Required: 231496
+Number of Trips Finished: 8
+
+Vehicle Type: V2
+Total Units Consumed: 156.54000000000002
+Total Time Required: 55023
+Number of Trips Finished: 8
+
 ]]></system-out>
   </testcase>
 </testsuite>
