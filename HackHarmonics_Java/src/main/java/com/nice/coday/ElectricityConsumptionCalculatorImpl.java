@@ -12,27 +12,29 @@ public class ElectricityConsumptionCalculatorImpl implements ElectricityConsumpt
     public ConsumptionResult calculateElectricityAndTimeConsumption(ResourceInfo resourceInfo) throws IOException {
         ConsumptionResult consumptionResult = new ConsumptionResult();
         AllDetails allDetails = new AllDetails(resourceInfo);// loads all details from csv files
-        Map<Integer, AggregatedResults> vehicleDetails = new HashMap<>(); // to store aggregated results by vehicle type
+        Map<Long, AggregatedResults> vehicleDetails = new HashMap<>(); // to store aggregated results by vehicle type
 
-        for (int tripId : allDetails.tripDetails.keySet()) {//iterate over all trips in all detials class
+        for (long tripId : allDetails.tripDetails.keySet()) {//iterate over all trips in all detials class
             TripDetails tripDetails = calculateTripDetails(allDetails, tripId, consumptionResult);
 
-            if (tripDetails.finished) {
-                // create a new AggregatedResults object if given vehicle type is not already in the map
-                AggregatedResults results = vehicleDetails.computeIfAbsent(tripDetails.vehicleType, k -> new AggregatedResults());
+            // if (tripDetails.finished) {
+            // create a new AggregatedResults object if given vehicle type is not already in the map
+            AggregatedResults results = vehicleDetails.computeIfAbsent(tripDetails.vehicleType, k -> new AggregatedResults());
 
-                // Update aggregated results
-                results.totalUnitsConsumed = round(results.totalUnitsConsumed + tripDetails.unitConsumed);
-                results.totalTimeRequired += tripDetails.timeRequired;
+            // Update aggregated results
+            results.totalUnitsConsumed = round(results.totalUnitsConsumed + tripDetails.unitConsumed);
+            results.totalTimeRequired += tripDetails.timeRequired;
+            if (tripDetails.finished) {
                 results.numberOfTripsFinished++;
-                // printTripDetails(tripId, tripDetails);
             }
+            // printTripDetails(tripId, tripDetails);
+            // }
         }
         // printAggregatedResults(vehicleDetails);
 
         // iterate over aggregated results by vehicle type 
-        for (Map.Entry<Integer, AggregatedResults> entry : vehicleDetails.entrySet()) {
-            int vehicleType = entry.getKey();
+        for (Map.Entry<Long, AggregatedResults> entry : vehicleDetails.entrySet()) {
+            long vehicleType = entry.getKey();
             AggregatedResults results = entry.getValue();
 
             //create ConsumptionDetails instance for vehicle type and add it to consumptionResult object
@@ -49,28 +51,28 @@ public class ElectricityConsumptionCalculatorImpl implements ElectricityConsumpt
     }
 
     //calculate details for a single trip
-    TripDetails calculateTripDetails(AllDetails allDetails, int tripId, ConsumptionResult consumptionResult) {
+    TripDetails calculateTripDetails(AllDetails allDetails, long tripId, ConsumptionResult consumptionResult) {
         TripDetails tripDetails = new TripDetails();
         // get all required details from allDetails object
-        int vehicleType = allDetails.tripDetails.get(tripId)[0];
-        int fullChargeDist = allDetails.vehicleTypeInfo.get(vehicleType)[1];
-        int fullChargeUnit = allDetails.vehicleTypeInfo.get(vehicleType)[0];
+        long vehicleType = allDetails.tripDetails.get(tripId)[0];
+        long fullChargeDist = allDetails.vehicleTypeInfo.get(vehicleType)[1];
+        long fullChargeUnit = allDetails.vehicleTypeInfo.get(vehicleType)[0];
         double initDistRemaining = allDetails.tripDetails.get(tripId)[1] * fullChargeDist / 100.0;
-        int entryPointDist = allDetails.entryExitPointInfo.get(allDetails.tripDetails.get(tripId)[2]);
-        int exitPointDist = allDetails.entryExitPointInfo.get(allDetails.tripDetails.get(tripId)[3]);
-        int distRequired = exitPointDist - entryPointDist;
+        long entryPointDist = allDetails.entryExitPointInfo.get(allDetails.tripDetails.get(tripId)[2]);
+        long exitPointDist = allDetails.entryExitPointInfo.get(allDetails.tripDetails.get(tripId)[3]);
+        long distRequired = exitPointDist - entryPointDist;
 
+        tripDetails.vehicleType = vehicleType;
         //check if trip can be completed without charging
         if (initDistRemaining >= distRequired) {
-            tripDetails.vehicleType = vehicleType;
             tripDetails.finished = true;
             return tripDetails;
         }
 
         //find the first required charging station
         // we take the last charging station we can before we run out of battery
-        int latestStationDist = -1;
-        for (Map.Entry<Integer, Integer> entry : allDetails.chargingStationInfo.entrySet()) {
+        long latestStationDist = -1;
+        for (Map.Entry<Long, Long> entry : allDetails.chargingStationInfo.entrySet()) {
             if (entry.getKey() >= entryPointDist) {
                 if (entry.getKey() < exitPointDist && entry.getKey() <= (double) entryPointDist + initDistRemaining) {
                     latestStationDist = entry.getKey();
@@ -86,7 +88,7 @@ public class ElectricityConsumptionCalculatorImpl implements ElectricityConsumpt
         }
 
         // distance travelled to first station
-        int distTravelled = latestStationDist - entryPointDist;
+        long distTravelled = latestStationDist - entryPointDist;
 
         // calculate units consumed and time required to charge at first station
         tripDetails.unitConsumed = round(((100.0 - allDetails.tripDetails.get(tripId)[1]) / 100.0 + 1.0 * distTravelled / fullChargeDist) * fullChargeUnit);
@@ -98,12 +100,13 @@ public class ElectricityConsumptionCalculatorImpl implements ElectricityConsumpt
 
         // find the subsequent stations till trip is over or we run out of battery
         while (distTravelled < distRequired) {
-            int currentStationDist = -1;//initialised as -1 in case we die before reaching next station
+            long currentStationDist = -1;//initialised as -1 in case we die before reaching next station
             if (latestStationDist + fullChargeDist >= exitPointDist) {//if we can reach exit point without charging
+                tripDetails.finished = true;
                 break;
             }
             //iterate to the latest possible station
-            for (Map.Entry<Integer, Integer> entry : allDetails.chargingStationInfo.tailMap(latestStationDist).entrySet()) {
+            for (Map.Entry<Long, Long> entry : allDetails.chargingStationInfo.tailMap(latestStationDist).entrySet()) {
                 if (entry.getKey() < exitPointDist && entry.getKey() <= latestStationDist + fullChargeDist) {
                     currentStationDist = entry.getKey();
                 } else {
@@ -111,12 +114,12 @@ public class ElectricityConsumptionCalculatorImpl implements ElectricityConsumpt
                 }
             }
             //no station found
-            if (currentStationDist == -1) {
-                return tripDetails;
+            if (currentStationDist == -1 || currentStationDist == latestStationDist) {
+                break;
             }
 
             //calculate distance, charging units and time taken to charge in this iteration
-            int distTravelledThisIteration = currentStationDist - latestStationDist;
+            long distTravelledThisIteration = currentStationDist - latestStationDist;
             double chargeUnitsConsumedThisIteration = round(1.0 * distTravelledThisIteration / fullChargeDist * fullChargeUnit);
             long timeRequiredThisIteration = (long) (chargeUnitsConsumedThisIteration * allDetails.timeToChargeVehicleInfo.get(new VCSPair(vehicleType, allDetails.chargingStationInfo.get(currentStationDist))));
             //update totals
@@ -129,14 +132,12 @@ public class ElectricityConsumptionCalculatorImpl implements ElectricityConsumpt
             latestStationDist = currentStationDist;
         }
         //remaining tripDetails
-        tripDetails.vehicleType = vehicleType;
-        tripDetails.finished = true;
         return tripDetails;
     }
 
     //round function to round to 2 decimal places
     private double round(double value) {
-        return Math.round(value * 100.0) / 100.0;
+        return Math.ceil(value * 100.0) / 100.0;
     }
 
 }
@@ -144,7 +145,7 @@ public class ElectricityConsumptionCalculatorImpl implements ElectricityConsumpt
 //utility classes for trip details and aggregated vehicle details
 class TripDetails {
 
-    public int vehicleType = 0;
+    public long vehicleType = 0;
     public double unitConsumed = 0;
     public long timeRequired = 0;
     public boolean finished = false;

@@ -15,11 +15,11 @@ import com.opencsv.exceptions.CsvValidationException;
 public class AllDetails {
 
     ResourceInfo resourceInfo;
-    SortedMap<Integer, Integer> chargingStationInfo = new TreeMap<>();
-    Map<Integer, Integer> entryExitPointInfo = new HashMap<>();
-    Map<VCSPair, Integer> timeToChargeVehicleInfo = new HashMap<>();
-    Map<Integer, int[]> vehicleTypeInfo = new HashMap<>();
-    Map<Integer, int[]> tripDetails = new HashMap<>();
+    SortedMap<Long, Long> chargingStationInfo = new TreeMap<>();
+    Map<Long, Long> entryExitPointInfo = new HashMap<>();
+    Map<VCSPair, Long> timeToChargeVehicleInfo = new HashMap<>();
+    Map<Long, long[]> vehicleTypeInfo = new HashMap<>();
+    Map<Long, long[]> tripDetails = new HashMap<>();
 
     public AllDetails(ResourceInfo resourceInfo) {
         this.resourceInfo = resourceInfo;
@@ -40,8 +40,8 @@ public class AllDetails {
             csvReader.readNext(); // ignore column titles
 
             while ((values = csvReader.readNext()) != null) {
-                int chargingStation = Integer.parseInt(values[0].substring(1));
-                int distanceFromStart = Integer.parseInt(values[1]);
+                long chargingStation = Long.parseLong(values[0].substring(1));
+                long distanceFromStart = Long.parseLong(values[1]);
                 chargingStationInfo.put(distanceFromStart, chargingStation);
             }
         }
@@ -53,8 +53,8 @@ public class AllDetails {
             csvReader.readNext(); // ignore column titles
 
             while ((values = csvReader.readNext()) != null) {
-                int entryExitPoint = Integer.parseInt(values[0].substring(1)); //convert point id strign to int
-                int distanceFromStart = Integer.parseInt(values[1]);
+                long entryExitPoint = Long.parseLong(values[0].substring(1)); //convert point id strign to long
+                long distanceFromStart = Long.parseLong(values[1]);
                 entryExitPointInfo.put(entryExitPoint, distanceFromStart);
             }
         }
@@ -66,9 +66,9 @@ public class AllDetails {
             csvReader.readNext(); // ignore column titles
 
             while ((values = csvReader.readNext()) != null) {
-                int vehicleType = Integer.parseInt(values[0].substring(1)); // convert vehicle type id string to int
-                int chargingStation = Integer.parseInt(values[1].substring(1)); // convert charging station id string to int
-                int timeToCharge = Integer.parseInt(values[2]);
+                long vehicleType = Long.parseLong(values[0].substring(1)); // convert vehicle type id string to long
+                long chargingStation = Long.parseLong(values[1].substring(1)); // convert charging station id string to long
+                long timeToCharge = Long.parseLong(values[2]);
                 VCSPair pair = new VCSPair(vehicleType, chargingStation);
                 timeToChargeVehicleInfo.put(pair, timeToCharge);
             }
@@ -81,10 +81,10 @@ public class AllDetails {
             csvReader.readNext(); // ignore column titles
 
             while ((values = csvReader.readNext()) != null) {
-                int vehicleType = Integer.parseInt(values[0].substring(1)); // convert vehicle type id string to int
-                int numberOfUnits = Integer.parseInt(values[1]);
-                int mileage = Integer.parseInt(values[2]);
-                vehicleTypeInfo.put(vehicleType, new int[]{numberOfUnits, mileage});
+                long vehicleType = Long.parseLong(values[0].substring(1)); // convert vehicle type id string to long
+                long numberOfUnits = Long.parseLong(values[1]);
+                long mileage = Long.parseLong(values[2]);
+                vehicleTypeInfo.put(vehicleType, new long[]{numberOfUnits, mileage});
             }
         }
     }
@@ -95,12 +95,12 @@ public class AllDetails {
             csvReader.readNext(); // Skip header
 
             while ((values = csvReader.readNext()) != null) {
-                int id = Integer.parseInt(values[0]);
-                int vehicleType = Integer.parseInt(values[1].substring(1)); // convert vehicle type id string to int
-                int remainingBattery = Integer.parseInt(values[2]);
-                int entryPoint = Integer.parseInt(values[3].substring(1)); // entry/exit point names to int
-                int exitPoint = Integer.parseInt(values[4].substring(1));
-                tripDetails.put(id, new int[]{vehicleType, remainingBattery, entryPoint, exitPoint});
+                long id = Long.parseLong(values[0]);
+                long vehicleType = Long.parseLong(values[1].substring(1)); // convert vehicle type id string to long
+                long remainingBattery = Long.parseLong(values[2]);
+                long entryPoint = Long.parseLong(values[3].substring(1)); // entry/exit point names to long
+                long exitPoint = Long.parseLong(values[4].substring(1));
+                tripDetails.put(id, new long[]{vehicleType, remainingBattery, entryPoint, exitPoint});
             }
         }
     }
@@ -108,10 +108,10 @@ public class AllDetails {
 
 class VCSPair {// Vehicle Charging Station pair class
 
-    int vehicleType;
-    int chargingStation;
+    long vehicleType;
+    long chargingStation;
 
-    public VCSPair(int vehicleType, int chargingStation) {
+    public VCSPair(long vehicleType, long chargingStation) {
         this.vehicleType = vehicleType;
         this.chargingStation = chargingStation;
     }
@@ -135,6 +135,6 @@ class VCSPair {// Vehicle Charging Station pair class
     // unlikely to match for upto 32 charging stations
     @Override
     public int hashCode() {
-        return 31 * vehicleType + chargingStation;
+        return (int) (31 * vehicleType + chargingStation);
     }
 }

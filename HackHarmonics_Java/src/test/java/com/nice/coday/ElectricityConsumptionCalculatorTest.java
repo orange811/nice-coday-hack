@@ -63,15 +63,15 @@ public class ElectricityConsumptionCalculatorTest {
 
         //Total time required for charging any vehicle at Charging Station Ch2
         int expectedTotalTimeRequiredAtC2 = 10570;
-        //double actualTotalTimeRequiredAtC2 = resultData.getTotalChargingStationTime().get("C2");
-        //Assert.assertEquals(expectedTotalTimeRequiredAtC2, actualTotalTimeRequiredAtC2, 50);
+        double actualTotalTimeRequiredAtC2 = resultData.getTotalChargingStationTime().get("C2");
+        Assert.assertEquals(expectedTotalTimeRequiredAtC2, actualTotalTimeRequiredAtC2, 50);
 
         //Total time required for charging any vehicle at Charging Station Ch10
         int expectedTotalTimeRequiredAtC10 = 46500;
         double actualTotalTimeRequiredAtC10 = resultData.getTotalChargingStationTime().get("C10");
         Assert.assertEquals(expectedTotalTimeRequiredAtC10, actualTotalTimeRequiredAtC10, 50);
 
-        //Number of trips finished by both vehicle types
+        //Number of trips finished by vehicle type V2
         long expectedNumberOfTripsFinished = 16;
         long actualNumberOfTripsFinished = resultData.getConsumptionDetails().stream()
                 .map(ConsumptionDetails::getNumberOfTripsFinished)
@@ -81,18 +81,22 @@ public class ElectricityConsumptionCalculatorTest {
 
     @Test
     public void test2() throws IOException {
+
         Path chargingStationInfoPath = Paths.get("src/main/resources/TestCase2/ChargingStationInfo.csv");
         Path entryExitPointInfoPath = Paths.get("src/main/resources/TestCase2/EntryExitPointInfo.csv");
         Path timeToChargeVehicleInfoPath = Paths.get("src/main/resources/TestCase2/TimeToChargeVehicleInfo.csv");
         Path tripDetailsPath = Paths.get("src/main/resources/TestCase2/TripDetails.csv");
         Path vehicleTypeInfoPath = Paths.get("src/main/resources/TestCase2/VehicleTypeInfo.csv");
+
         resourceInfo = new ResourceInfo(chargingStationInfoPath, entryExitPointInfoPath, timeToChargeVehicleInfoPath, tripDetailsPath, vehicleTypeInfoPath);
         ElectricityConsumptionCalculator analyzer = new ElectricityConsumptionCalculatorImpl();
         resultData = analyzer.calculateElectricityAndTimeConsumption(resourceInfo);
+
         //Total Unit Consume by all vehicles
         double expectedTotalUnitsConsumed = 3972;
         double actualTotalUnitsConsumed = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
         Assert.assertEquals(expectedTotalUnitsConsumed, actualTotalUnitsConsumed, 2.0);
+
         //Total Unit Consume by Vehicle Type V4
         double expectedTotalUnitsConsumedByV4 = 670.27;
         double actualTotalUnitsConsumedByV4 = resultData.getConsumptionDetails().stream()
@@ -101,6 +105,7 @@ public class ElectricityConsumptionCalculatorTest {
                 .sum();
         System.out.println("actualTotalUnitsConsumedByV4 = " + actualTotalUnitsConsumedByV4);
         Assert.assertEquals(expectedTotalUnitsConsumedByV4, actualTotalUnitsConsumedByV4, 1);
+
         //Total Time required for charging Vehicle Type V1
         int expectedTotalTimeRequiredByV1 = 238437; // The expected sum of TotalUnitConsumed for VehicleType "V2"
         long actualTotalTimeRequiredByV1 = resultData.getConsumptionDetails().stream().filter(cd -> cd.getVehicleType().equals("V1")).mapToLong(ConsumptionDetails::getTotalTimeRequired).sum();
@@ -133,41 +138,49 @@ public class ElectricityConsumptionCalculatorTest {
         Assert.assertEquals(expectedNumberOfTripsFinished, actualNumberOfTripsFinished, 0.0);
     }
 
-//     @Test
-//     public void test4() throws IOException {
-//         Path chargingStationInfoPath = Paths.get("src/main/resources/TestCase4/ChargingStationInfo.csv");
-//         Path entryExitPointInfoPath = Paths.get("src/main/resources/TestCase4/EntryExitPointInfo.csv");
-//         Path timeToChargeVehicleInfoPath = Paths.get("src/main/resources/TestCase4/TimeToChargeVehicleInfo.csv");
-//         Path tripDetailsPath = Paths.get("src/main/resources/TestCase4/TripDetails.csv");
-//         Path vehicleTypeInfoPath = Paths.get("src/main/resources/TestCase4/VehicleTypeInfo.csv");
-//         resourceInfo = new ResourceInfo(chargingStationInfoPath, entryExitPointInfoPath, timeToChargeVehicleInfoPath, tripDetailsPath, vehicleTypeInfoPath);
-//         ElectricityConsumptionCalculator analyzer = new ElectricityConsumptionCalculatorImpl();
-//         resultData = analyzer.calculateElectricityAndTimeConsumption(resourceInfo);
-//         //Total Unit Consume by all vehicles
-//         double expectedTotalUnitsConsumed = 736.0;
-//         double actualTotalUnitsConsumed = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
-//         Assert.assertEquals(expectedTotalUnitsConsumed, actualTotalUnitsConsumed, 2.0);
-//         //Total Unit Consume by Vehicle Type V4
-//         double expectedTotalUnitsConsumedByV4 = 174.0;
-//         double actualTotalUnitsConsumedByV4 = resultData.getConsumptionDetails().stream()
-//                 .filter(cd -> cd.getVehicleType().equals("V4"))
-//                 .mapToDouble(ConsumptionDetails::getTotalUnitConsumed)
-//                 .sum();
-//         Assert.assertEquals(expectedTotalUnitsConsumedByV4, actualTotalUnitsConsumedByV4, 1.0);
-//         //Total Time required for charging Vehicle Type V2
-//         long expectedTotalTimeRequiredByV1 = 11649;
-//         long actualTotalTimeRequiredByV1 = resultData.getConsumptionDetails().stream()
-//                 .filter(cd -> cd.getVehicleType().equals("V2"))
-//                 .mapToLong(ConsumptionDetails::getTotalTimeRequired)
-//                 .sum();
-//         Assert.assertEquals(expectedTotalTimeRequiredByV1, actualTotalTimeRequiredByV1, 60L);
-//         //Number of trips finished
-//         long expectedNumberOfTripsFinished = 40L;
-//         long actualNumberOfTripsFinished = resultData.getConsumptionDetails().stream()
-//                 .map(ConsumptionDetails::getNumberOfTripsFinished)
-//                 .reduce(0L, Long::sum);
-//         Assert.assertEquals(expectedNumberOfTripsFinished, actualNumberOfTripsFinished, 0.0);
-//     }
+    @Test
+    public void test4() throws IOException {
+
+        Path chargingStationInfoPath = Paths.get("src/main/resources/TestCase4/ChargingStationInfo.csv");
+        Path entryExitPointInfoPath = Paths.get("src/main/resources/TestCase4/EntryExitPointInfo.csv");
+        Path timeToChargeVehicleInfoPath = Paths.get("src/main/resources/TestCase4/TimeToChargeVehicleInfo.csv");
+        Path tripDetailsPath = Paths.get("src/main/resources/TestCase4/TripDetails.csv");
+        Path vehicleTypeInfoPath = Paths.get("src/main/resources/TestCase4/VehicleTypeInfo.csv");
+
+        resourceInfo = new ResourceInfo(chargingStationInfoPath, entryExitPointInfoPath, timeToChargeVehicleInfoPath, tripDetailsPath, vehicleTypeInfoPath);
+        ElectricityConsumptionCalculator analyzer = new ElectricityConsumptionCalculatorImpl();
+        resultData = analyzer.calculateElectricityAndTimeConsumption(resourceInfo);
+
+        //Total Unit Consume by all vehicles
+        double expectedTotalUnitsConsumed = 736.0;
+        double actualTotalUnitsConsumed = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
+        Assert.assertEquals(expectedTotalUnitsConsumed, actualTotalUnitsConsumed, 2.0);
+
+        //Total Unit Consume by Vehicle Type V4
+        double expectedTotalUnitsConsumedByV4 = 174.0;
+        double actualTotalUnitsConsumedByV4 = resultData.getConsumptionDetails().stream()
+                .filter(cd -> cd.getVehicleType().equals("V4"))
+                .mapToDouble(ConsumptionDetails::getTotalUnitConsumed)
+                .sum();
+        Assert.assertEquals(expectedTotalUnitsConsumedByV4, actualTotalUnitsConsumedByV4, 1.0);
+
+        //Total Time required for charging Vehicle Type V2
+        long expectedTotalTimeRequiredByV1 = 11649;
+        long actualTotalTimeRequiredByV1 = resultData.getConsumptionDetails().stream()
+                .filter(cd -> cd.getVehicleType().equals("V2"))
+                .mapToLong(ConsumptionDetails::getTotalTimeRequired)
+                .sum();
+        Assert.assertEquals(expectedTotalTimeRequiredByV1, actualTotalTimeRequiredByV1, 60L);
+
+        //Number of trips finished
+        long expectedNumberOfTripsFinished = 40L;
+        long actualNumberOfTripsFinished = resultData.getConsumptionDetails().stream()
+                .map(ConsumptionDetails::getNumberOfTripsFinished)
+                .reduce(0L, Long::sum);
+        Assert.assertEquals(expectedNumberOfTripsFinished, actualNumberOfTripsFinished, 0.0);
+
+    }
+
     @Test
     public void test5() throws IOException {
 
