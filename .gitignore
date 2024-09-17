@@ -1,0 +1,7 @@
+# Exclude .class and .jar files globally
+*.class
+*.jar
+
+# Exclude the target and .vscode folders inside HackHarmonics_Java
+/HackHarmonics_Java/target/
+/HackHarmonics_Java/.vscode/

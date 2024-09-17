@@ -57,7 +57,7 @@ public class ElectricityConsumptionCalculatorImpl implements ElectricityConsumpt
         long vehicleType = allDetails.tripDetails.get(tripId)[0];
         long fullChargeDist = allDetails.vehicleTypeInfo.get(vehicleType)[1];
         long fullChargeUnit = allDetails.vehicleTypeInfo.get(vehicleType)[0];
-        double initDistRemaining = allDetails.tripDetails.get(tripId)[1] * fullChargeDist / 100.0;
+        double initDistRemaining = round(allDetails.tripDetails.get(tripId)[1] * fullChargeDist / 100.0);
         long entryPointDist = allDetails.entryExitPointInfo.get(allDetails.tripDetails.get(tripId)[2]);
         long exitPointDist = allDetails.entryExitPointInfo.get(allDetails.tripDetails.get(tripId)[3]);
         long distRequired = exitPointDist - entryPointDist;
