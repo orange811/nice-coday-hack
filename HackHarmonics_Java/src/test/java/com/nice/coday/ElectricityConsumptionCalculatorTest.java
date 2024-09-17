@@ -1,16 +1,17 @@
 package com.nice.coday;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 public class ElectricityConsumptionCalculatorTest {
+
     @InjectMocks
     private static ConsumptionResult resultData;
 
@@ -36,7 +37,7 @@ public class ElectricityConsumptionCalculatorTest {
 
         //Total Unit Consume by all vehicles
         double expectedTotalUnitsConsumed = 690.60; // The expected sum of all TotalUnitConsumed
-        double actualTotalUnitsConsumed  = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
+        double actualTotalUnitsConsumed = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
         Assert.assertEquals(expectedTotalUnitsConsumed, actualTotalUnitsConsumed, 1.0);
 
         //Total Unit Consume by Vehicle Type V1
@@ -72,7 +73,7 @@ public class ElectricityConsumptionCalculatorTest {
 
         //Number of trips finished by vehicle type V2
         long expectedNumberOfTripsFinished = 16;
-        long  actualNumberOfTripsFinished = resultData.getConsumptionDetails().stream()
+        long actualNumberOfTripsFinished = resultData.getConsumptionDetails().stream()
                 .map(ConsumptionDetails::getNumberOfTripsFinished)
                 .reduce(0L, Long::sum);
         Assert.assertEquals(expectedNumberOfTripsFinished, actualNumberOfTripsFinished, 0.0);
@@ -93,7 +94,7 @@ public class ElectricityConsumptionCalculatorTest {
 
         //Total Unit Consume by all vehicles
         double expectedTotalUnitsConsumed = 3972;
-        double actualTotalUnitsConsumed  = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
+        double actualTotalUnitsConsumed = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
         Assert.assertEquals(expectedTotalUnitsConsumed, actualTotalUnitsConsumed, 2.0);
 
         //Total Unit Consume by Vehicle Type V4
@@ -126,7 +127,7 @@ public class ElectricityConsumptionCalculatorTest {
 
         //Total Unit Consume by all vehicles
         double expectedTotalUnitsConsumed = 0;
-        double actualTotalUnitsConsumed  = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
+        double actualTotalUnitsConsumed = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
         Assert.assertEquals(expectedTotalUnitsConsumed, actualTotalUnitsConsumed, 0.0);
 
         //Number of trips finished
@@ -152,7 +153,7 @@ public class ElectricityConsumptionCalculatorTest {
 
         //Total Unit Consume by all vehicles
         double expectedTotalUnitsConsumed = 736.0;
-        double actualTotalUnitsConsumed  = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
+        double actualTotalUnitsConsumed = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
         Assert.assertEquals(expectedTotalUnitsConsumed, actualTotalUnitsConsumed, 2.0);
 
         //Total Unit Consume by Vehicle Type V4
@@ -173,7 +174,7 @@ public class ElectricityConsumptionCalculatorTest {
 
         //Number of trips finished
         long expectedNumberOfTripsFinished = 40L;
-        long  actualNumberOfTripsFinished = resultData.getConsumptionDetails().stream()
+        long actualNumberOfTripsFinished = resultData.getConsumptionDetails().stream()
                 .map(ConsumptionDetails::getNumberOfTripsFinished)
                 .reduce(0L, Long::sum);
         Assert.assertEquals(expectedNumberOfTripsFinished, actualNumberOfTripsFinished, 0.0);
@@ -195,7 +196,7 @@ public class ElectricityConsumptionCalculatorTest {
 
         // Total Unit Consume by all vehicles
         double expectedTotalUnitsConsumed = 351797;
-        double actualTotalUnitsConsumed  = resultData.getConsumptionDetails().stream()
+        double actualTotalUnitsConsumed = resultData.getConsumptionDetails().stream()
                 .mapToDouble(ConsumptionDetails::getTotalUnitConsumed)
                 .sum();
         Assert.assertEquals(expectedTotalUnitsConsumed, actualTotalUnitsConsumed, 10.0);
@@ -236,7 +237,7 @@ public class ElectricityConsumptionCalculatorTest {
 
         //Total Unit Consume by all vehicles
         double expectedTotalUnitsConsumed = 2741580; // The expected sum of all TotalUnitConsumed
-        double actualTotalUnitsConsumed  = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
+        double actualTotalUnitsConsumed = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
         System.out.println("actualTotalUnitsConsumed : " + actualTotalUnitsConsumed);
         Assert.assertEquals(expectedTotalUnitsConsumed, actualTotalUnitsConsumed, 50.0);
 
@@ -248,7 +249,6 @@ public class ElectricityConsumptionCalculatorTest {
                 .sum();
         System.out.println("actualTotalUnitsConsumedByV16 = " + actualTotalUnitsConsumedByV16);
         Assert.assertEquals(expectedTotalUnitsConsumedByV16, actualTotalUnitsConsumedByV16, 10.0);
-
 
         //Total Time required for charging Vehicle Type V12
         long expectedTotalTimeRequiredByV12 = 41961924L;
@@ -281,7 +281,7 @@ public class ElectricityConsumptionCalculatorTest {
 
         //Total Unit Consume by all vehicles
         double expectedTotalUnitsConsumed = 12823458; // The expected sum of all TotalUnitConsumed
-        double actualTotalUnitsConsumed  = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
+        double actualTotalUnitsConsumed = resultData.getConsumptionDetails().stream().mapToDouble(ConsumptionDetails::getTotalUnitConsumed).sum();
         Assert.assertEquals(expectedTotalUnitsConsumed, actualTotalUnitsConsumed, 200.0);
 
         //Total Unit Consume by Vehicle Type V29
@@ -292,7 +292,6 @@ public class ElectricityConsumptionCalculatorTest {
                 .sum();
         Assert.assertEquals(expectedTotalUnitsConsumedByV29, actualTotalUnitsConsumedByV29, 20.0);
 
-
         //Total time required for charging any vehicle at Charging Station Ch183
         long expectedTotalTimeRequiredAtC183 = 22999411L;
         long actualTotalTimeRequiredAtC183 = resultData.getTotalChargingStationTime().get("C183");
@@ -300,7 +299,7 @@ public class ElectricityConsumptionCalculatorTest {
 
         //Number of trips finished
         long expectedNumberOfTripsFinished = 99227;
-        long  actualNumberOfTripsFinished = resultData.getConsumptionDetails().stream()
+        long actualNumberOfTripsFinished = resultData.getConsumptionDetails().stream()
                 .map(ConsumptionDetails::getNumberOfTripsFinished)
                 .reduce(0L, Long::sum);
         Assert.assertEquals(expectedNumberOfTripsFinished, actualNumberOfTripsFinished);
